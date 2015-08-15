@@ -32,8 +32,6 @@ firewall() {
     iptables -A OUTPUT -p tcp -m owner --gid-owner vpn -j ACCEPT
     iptables -A OUTPUT -p udp -m owner --gid-owner vpn -j ACCEPT
     iptables -A OUTPUT -j DROP
-    iptables -A INPUT -s 192.168.1.0/24 -j ACCEPT
-    iptables -A OUTPUT -s 192.168.1.0/24 -j ACCEPT
 }
 
 ### timezone: Set the timezone for the container
@@ -65,7 +63,7 @@ vpn() { local server="$1" user="$2" pass="$3" \
     cat > $conf << EOF
 client
 dev tun
-proto udp
+proto tcp
 remote $server 443 
 resolv-retry infinite
 nobind
