@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER David Personette <dperson@dperson.com>
+MAINTAINER chosenken@gmail.com 
 
 # Install openvpn
 RUN export DEBIAN_FRONTEND='noninteractive' && \
